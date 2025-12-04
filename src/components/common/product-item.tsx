@@ -19,7 +19,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
         src={firstVariant.imageUrl}
         alt={firstVariant.name}
         width={200}
-        height={260}
+        height={200}
         className="rounded-3xl"
       />
       <div className="flex max-w-[150px] flex-col gap-1">
