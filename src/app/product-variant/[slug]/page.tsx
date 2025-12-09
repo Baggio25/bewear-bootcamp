@@ -55,8 +55,6 @@ const ProductVariantPage = async ({ params }: ProductVariantPageProps) => {
           />
         </div>
 
-        <div className="px-5"></div>
-
         <div className="px-5">
           <h2 className="text-lg font-semibold">
             {productVariant.product.name}
