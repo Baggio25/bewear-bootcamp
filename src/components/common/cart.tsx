@@ -48,6 +48,7 @@ const Cart = () => {
                       item.productVariant.priceInCents
                     }
                     quantity={item.quantity}
+                    productVariantId={item.productVariant.id}
                   />
                 ))}
               </div>
