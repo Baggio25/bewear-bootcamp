@@ -4,8 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { PatternFormat } from "react-number-format";
+import { toast } from "sonner";
 import { z } from "zod";
 
+import { createShippingAddress } from "@/actions/create-shipping-address";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -68,7 +70,17 @@ const Adresses = () => {
   });
 
   const onSubmit = async (values: AddressFormValues) => {
-    console.log(values);
+    try {
+      await createShippingAddress(values);
+      toast.success("Endereço criado com sucesso");
+      form.reset();
+    } catch (error) {
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Erro ao criar endereço. Tente novamente.",
+      );
+    }
   };
 
   return (
